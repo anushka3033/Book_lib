@@ -1,1 +1,8 @@
-ECHO is on.
+__pycache__/
+*.pyc
+*.pyo
+.env
+.vscode/
+.idea/
+*.sqlite3
+node_modules/
