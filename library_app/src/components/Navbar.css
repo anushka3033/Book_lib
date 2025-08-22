@@ -1,0 +1,208 @@
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 15px 30px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.navbar-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navbar-title:hover {
+  transform: scale(1.05);
+}
+
+.navbar-links {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-links li {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 48px;
+}
+
+.navbar-links li a,
+.profile-btn,
+.logout-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: 500;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s, color 0.2s;
+  box-shadow: none;
+  outline: none;
+}
+
+.navbar-links li a {
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.navbar-links li a::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.12);
+  transition: left 0.3s ease;
+  border-radius: 25px;
+  z-index: 0;
+}
+
+.navbar-links li a:hover::before {
+  left: 0;
+}
+
+.navbar-links li a:hover,
+.navbar-links li.active a {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  z-index: 1;
+}
+
+.navbar-links li.active a {
+  background: #fff;
+  color: #764ba2;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(118, 75, 162, 0.10);
+}
+
+.profile-nav {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.profile-btn {
+  background: none;
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.profile-btn.active {
+  background: #fff;
+  color: #764ba2;
+  font-weight: 700;
+  box-shadow: 0 4px 16px rgba(118, 75, 162, 0.10);
+}
+
+.profile-btn:hover:not(.active) {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.profile-dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background: white;
+  color: #333;
+  min-width: 180px;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  padding: 16px 20px;
+  z-index: 1001;
+  font-size: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: fadeInProfile 0.2s;
+}
+
+@keyframes fadeInProfile {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.logout-button {
+  background: rgba(220, 38, 38, 0.8);
+  color: white;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, box-shadow 0.2s;
+  font-family: inherit;
+}
+
+.logout-button:hover {
+  background: rgba(220, 38, 38, 1);
+  color: #fff;
+  box-shadow: 0 4px 12px rgba(220, 38, 38, 0.3);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    padding: 15px 20px;
+    gap: 15px;
+  }
+  
+  .navbar-links {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .navbar-links li a,
+  .logout-button {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 20px;
+  }
+  
+  .navbar-links {
+    gap: 10px;
+  }
+  
+  .navbar-links li a,
+  .logout-button {
+    padding: 6px 10px;
+    font-size: 13px;
+  }
+}
