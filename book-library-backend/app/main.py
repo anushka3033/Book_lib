@@ -23,4 +23,5 @@ app.include_router(books.router)
 
 @app.get("/")
 def root():
+    print("Root endpoint accessed")
     return {"message": "Book Library Backend is running 🚀"}
